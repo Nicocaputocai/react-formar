@@ -25,7 +25,7 @@ module.exports ={
             })
 
             if(user){
-                throw createError(400,"Email registrado")
+                throw createError(400,"Este email ya se encuentra registrado")
             }
             const token = generateToken()
             user = new User(req.body)
