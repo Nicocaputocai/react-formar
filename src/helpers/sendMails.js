@@ -43,7 +43,7 @@ module.exports={
                 text: "reestablecé tu contraseña en  proyect manager",
                 html: `
                 <p> Hola ${name}, para reestablecer tu contraseña hacé click en el siguiente enlace</p>
-                <a href="${process.env.URL_FRONT}/recorver-password/${token}">Confirmá tu cuenta</a>
+                <a href="${process.env.URL_FRONT}/recover-password/${token}">Confirmá tu cuenta</a>
                 `
             })
         console.log(infoMail);

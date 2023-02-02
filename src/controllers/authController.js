@@ -192,6 +192,8 @@ module.exports ={
                 token
             });
 
+            if(!user) throw createError(400, "El token es inválido")
+
             user.password = password;
             user.token= "";
             await user.save()
@@ -199,7 +201,7 @@ module.exports ={
 
             return res.status(200).json({
             ok: true,
-            msg: 'password actualizada'
+            msg: 'Contraseña actualizada'
         });
         } catch (error) {
             res.status(error.status || 500).json({
