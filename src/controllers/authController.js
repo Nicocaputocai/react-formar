@@ -49,6 +49,7 @@ module.exports ={
         catch(error) {
             return errorResponse(res,error, "REGISTER")
         }
+
         },
             login: async (req,res) =>{
 
@@ -63,7 +64,7 @@ module.exports ={
                         email
                     })
                     if(!user){
-                        throw createError(403,"Credenciales inválidas | Email")
+                        throw createError(403,"Credenciales inválidas")
                     }
 
                     if(!user.checked){
@@ -71,23 +72,24 @@ module.exports ={
                     }
 
                     if (!await user.checkedPassword(password)) {
-                        throw createError(403,"Credenciales inválidas | Password")
+                        throw createError(403,"Credenciales inválidas")
                     }
 
                     return res.status(200).json({
-                    ok: true,
-                    msg: 'usuario logueado',
-                    user:{
-                        nombre: user.name,
-                        email: user.email,
-                        token: generateToken({
+                        ok: true,
+                        msg: 'usuario logueado',
+                        user : {
+                            nombre : user.name,
+                            _id : user._id,
+                        },
+                        token : generateToken({
                             id: user._id
                         })
+                        
+                    })
+                    } catch (error) {
+                        return errorResponse(res,error, "LOGIN")
                     }
-                })
-                } catch (error) {
-                    return errorResponse(res,error, "LOGIN")
-                }
 
     },
         checked:async (req,res) =>{

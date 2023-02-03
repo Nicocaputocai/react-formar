@@ -23,7 +23,7 @@ const users = require('./routes/users')
 const project = require('./routes/projetc')
 const task = require('./routes/task')
 App
-    .use(cors(corsOptions))
+    .use(cors()) // si uso postman tengo que sacar el corsOptions
     .use('/api/auth',auth)
     .use('/api/users', users)
     .use('/api/project', project)

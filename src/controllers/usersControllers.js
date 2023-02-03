@@ -3,7 +3,8 @@ module.exports = {
             try {
                 return res.status(200).json({
                 ok: true,
-                msg: 'perfil de usuario'
+                msg: 'perfil de usuario',
+                user: req.user
             })
             } catch (error) {
                 res.status(error.status || 500).json({
