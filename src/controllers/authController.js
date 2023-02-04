@@ -1,8 +1,7 @@
 const User = require('../models/User')
 const createError = require('http-errors')
 const errorResponse = require('../helpers/errorResponse')
-const gerenerateToken = require('../helpers/generateToken')
-const { token } = require('morgan')
+const JWTGenerator = require('../helpers/JWTGenerator')
 const generateToken = require('../helpers/generateToken')
 const {confirmRegister, forgotPassword} = require('../helpers/sendMails')
 
@@ -79,10 +78,10 @@ module.exports ={
                         ok: true,
                         msg: 'usuario logueado',
                         user : {
-                            nombre : user.name,
+                            name : user.name,
                             _id : user._id,
                         },
-                        token : generateToken({
+                        token : JWTGenerator({
                             id: user._id
                         })
                         

@@ -1,9 +1,9 @@
 const errorResponse = require("../helpers/errorResponse");
 const {verify} = require('jsonwebtoken')
-const createHttpError = require('http-errors');
+const createError = require('http-errors');
 const User = require("../models/User");
 
-module.exports =async(req,res,next) => {
+module.exports = async(req,res,next) => {
     try {
 
         if(!req.headers.authorization){
