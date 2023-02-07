@@ -9,11 +9,11 @@ App.use(express.urlencoded({ extended: false }));
 //No va a funcionar POSTMAN!!
 const whiteList = [process.env.URL_FRONT]
 const corsOptions = {
-    origin : function (origin, cb) {
+    origin : function (origin, callback) {
         if(whiteList.includes(origin)){
-            cb(null, true)
+            callback(null, true)
         }else{
-            cb(new Error('Error de CORS'))
+            callback(new Error('Error de CORS'))
         }
     }
 }
