@@ -20,7 +20,7 @@ const corsOptions = {
 
 const auth =  require('./routes/auth')
 const users = require('./routes/users')
-const project = require('./routes/projetc')
+const project = require('./routes/project')
 const task = require('./routes/task');
 const checkToken = require('./middleware/checkToken');
 App
