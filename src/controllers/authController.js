@@ -26,6 +26,7 @@ module.exports ={
             if(user){
                 throw createError(400,"Este email ya se encuentra registrado")
             }
+            //token corto para verificar correo
             const token = generateToken()
             user = new User(req.body)
             user.token = token
@@ -91,6 +92,8 @@ module.exports ={
                     }
 
     },
+    // Checkeo de token enviado por mail
+
         checked:async (req,res) =>{
             const {token} = req.query
             try {
@@ -121,6 +124,7 @@ module.exports ={
             }
 
     },
+    // Envío de token por perdida de contraseña
         sendToken:async (req,res) =>{
             const {email} = req.body;
 
@@ -156,6 +160,7 @@ module.exports ={
             }
 
     },
+    // Compara tokens en la db usuarios para cambiar contraseña olvidada
         verifyToken:async (req,res) =>{
                 
             try {

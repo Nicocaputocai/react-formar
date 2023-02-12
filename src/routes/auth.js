@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const {changePassword,checked,login,register,sendToken,verifyToken} = require('../controllers/authController')
+const {changePassword,checked,login,register,sendToken,verifyToken} = require('../controllers/authController');
 
 router
     .post('/register', register )
